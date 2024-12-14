@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreative Seite</title>
+    <style>
+         body, html {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            color: #000000;
+        }
+
+        header {
+            display: flex;
+            font-family: sans-serif;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(28, 28, 28, 0.3);
+        }
+
+        h1 {
+            font-size: 22px;
+        }
+
+        .acc-menu{
+            height: 29px;
+            width: 29px;
+          
+        }
+
+        .acc-menu:hover{
+            background-color: rgba(128, 128, 128, 0.201);
+            border-radius: 12px;
+        }
+
+        .menu-icon {
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+      
+
+        .menu-icon:hover {
+            border-radius: 20%;
+            background-color: rgba(95, 95, 95, 0.144);
+            
+        }
+
+        .menu {
+            
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 58px;
+            height: 450px;
+            width: 150px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid grey;
+            padding: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000000;
+            padding: 9px;
+            margin-bottom: 12px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 9px;
+            margin: 10px;
+            background-color: rgb(234, 232, 232);
+           
+        }
+
+        .menu a:hover {
+            background-color: rgba(151, 149, 149, 0.46);
+            
+            
+        }
+
+      
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .title {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.5em;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .filter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 735px) {
+            .filter{
+                font-size: smaller;
+                margin-top: 34px;
+                margin-bottom: 32px;
+                text-align: center;
+                margin: 0 auto; /* Zentriere den Container */
+    overflow-x: auto; /* Horizontales Scrollen aktivieren */
+    white-space: nowrap; /* Verhindern, dass der Inhalt umbricht */
+            }
+            .filterbtn {
+                display: flex;
+               display: inline-block;
+                font-size: smaller;
+            }
+
+            .filter select{
+                display: inline-block;
+                border: 0.7px solid black;
+                border-radius: 6px;
+                font-size: smaller;
+            }
+           
+        }
+
+        .filterbtn {
+            border: 0.1px solid #213d6df3;
+            border-radius: 6px;
+            color: white;
+            background-color: #213d6df3;
+            transition: background-color 0.3s;
+        }
+
+
+
+        .filterbtn:hover {
+            background-color: #000000;
+        }
+
+        .reset-icon{
+            font-size: 25px;
+            font-size: 1.15em;
+            border: 1.5px solid black;
+            border-radius: 6px;
+            padding: 3px 5px;
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        .filter select {
+            padding: 5px;
+            background: none;
+            border: 1.4px solid black;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .filter select:hover {
+            border: 1.3px solid black;
+        }
+
+        .filter option{
+            margin-top: 4px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .profile-card {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            max-width: 600px;
+            height: 130px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(28, 28, 28, 0.3);
+        }
+
+        .profile-card img {
+            width: 43px;
+            height: 43px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .profile-info div {
+            font-size: 0.9em;
+        }
+
+        .ad-space {
+            width: 90%;
+            max-width: 600px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px dashed #000000;
+            color: #000000;
+            background-color: #ffffff;
+            font-size: 1em;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        h5 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 30px;
+        }
+
+        .date {
+            font-size: 2px;
+            color: gray;
+        }
+
+        .no-results {
+            display: none;
+            font-size: 1.5em;
+            color: black;
+            text-align: center;
+            margin-top: 85px;
+        }
+        .no-results2{
+            text-align: center;
+            font-size: 1.1em;
+            color: rgb(95, 95, 95);
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <h1><u>OSL</u></h1>
+        <img class="acc-menu" id="acc-menu"  src="edituser-icon-removebg-preview.png" >
+    </header>
+    <div class="menu" id="menu">
+        <a href="index.html"> <strong>  Startseite </strong></a>
+        <a href="acc.html"> <strong> Account </strong> </a>
+        <a href="hilfe.html"><strong> Hilfe  </strong></a>
+        <a href="contact.html"> <strong>Kontakt </strong> </a>
+    </div>
+    <div class="title"><strong>Aktuelle Gebote von Unternehmen an Influencer:</strong></div>
+
+    <div class="filter">
+        <select id="themenbereich-filter">
+            <option value="">Themenbereich</option>
+            <option value="Fitness">Fitness</option>
+            <option value="Mode">Mode</option>
+            <option value="Technik">Technik</option>
+            <option value="Essen">Essen</option>
+            <option value="Dienstleistung">Dienstleistung</option>
+        </select>
+        <select id="follower-filter">
+            <option value="0">Min. Follower</option>
+            <option value="1000">1k</option>
+            <option value="3000">3k</option>
+            <option value="5000">5k</option>
+            <option value="10000">10k</option>
+            <option value="20000">20k+</option>
+        </select>
+        <select id="preis-filter">
+            <option value="1000">Max. Preis</option>
+            <option value="20"> 20€</option>
+            <option value="30"> 30€</option>
+            <option value="50"> 50€</option>
+            <option value="80"> 80€</option>
+            <option value="100">100€+</option>
+        </select>
+        
+        <button class="filterbtn" onclick="applyFilters()"><strong>Filter anwenden</strong></button>
+        <div class="reset-icon" id="reset-icon" onclick="resetFilters()">ⓧ</div>
+    </div>
+
+    <div class="container" id="card-container">
+        <!-- Karten werden hier dynamisch eingefügt -->
+    </div>
+
+    <div class="no-results" id="no-results"> <strong> Nothing Found...<br><div class="no-results2">Please try again...</div></strong></div>
+
+    <script>
+        // Google Sheets API-Schlüssel und Tabellen-ID
+        const API_KEY = 'YOUR_API_KEY';
+        const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID';
+        const RANGE = 'Sheet1!A2:G'; // Anpassen an Ihren Bereich
+
+        // Funktion zum Laden der Daten aus Google Sheets
+        function loadSheetData() {
+            fetch(`https://docs.google.com/spreadsheets/d/1c6XvDunr_ZygZ6YU5D1XURjJr8T65A5TFyFaWZbN3GE/edit?gid=0#gid=0`)
+                .then(response => response.json())
+                .then(data => {
+                    const rows = data.values;
+                    const container = document.getElementById('card-container');
+                    container.innerHTML = ''; // Leere den Container
+
+                    rows.forEach(row => {
+                        const [name, follower, themenbereich, produkt, preis, zeit, bildUrl] = row;
+                        const card = createCard(name, follower, themenbereich, produkt, preis, zeit, bildUrl);
+                        container.appendChild(card);
+                        container.appendChild(createAdSpace(themenbereich, follower, preis));
+                    });
+
+                    applyFilters(); // Initial Filter anwenden
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Funktion zum Erstellen einer Karte
+        function createCard(name, follower, themenbereich, produkt, preis, zeit, bildUrl) {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+            card.setAttribute('data-themenbereich', themenbereich);
+            card.setAttribute('data-follower', follower.replace(/[^0-9]/g, ''));
+            card.setAttribute('data-preis', preis.replace(/[^0-9]/g, ''));
+
+            card.innerHTML = `
+                <img src="${bildUrl || 'https://via.placeholder.com/80'}" alt="Profilbild">
+                <div class="profile-info">
+                    <div>Name: ${name}</div>
+                    <div>Follower: ${follower}</div>
+                    <div>Produkt: ${produkt}</div>
+                    <div>Bietender Preis für 1 Beitrag: ${preis}</div>
+                    <div class="date">${zeit}</div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Funktion zum Erstellen eines Werbebereichs
+        function createAdSpace(themenbereich, follower, preis) {
+            const adSpace = document.createElement('div');
+            adSpace.className = 'ad-space';
+            adSpace.setAttribute('data-themenbereich', themenbereich);
+            adSpace.setAttribute('data-follower', follower.replace(/[^0-9]/g, ''));
+            adSpace.setAttribute('data-preis', preis.replace(/[^0-9]/g, ''));
+            adSpace.textContent = 'Werbung';
+            return adSpace;
+        }
+
+        // Bestehende Funktionen hier einfügen (toggleMenu, applyFilters, resetFilters, etc.)
+
+        // Laden Sie die Daten beim Seitenstart
+        window.onload = loadSheetData;
+    </script>
+</body>
+</html>
